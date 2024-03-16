@@ -6,7 +6,6 @@ import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/utils/Address.sol';
 
-// Github: @Evileye0666
 contract Simple is ERC721Enumerable, Ownable, ReentrancyGuard {
   uint256 public immutable maxSupply;
   uint256 public immutable price;
