@@ -1,7 +1,6 @@
 // require('@nomiclabs/hardhat-etherscan');
 require('@nomicfoundation/hardhat-toolbox');
 require('hardhat-gas-reporter');
-const myCon = require('./mysetting').config;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   etherscan: {
@@ -10,16 +9,16 @@ module.exports = {
   networks: {
     hardhat: {},
     main: {
-      url: myCon.url.main,
-      accounts: myCon.accounts.main,
+      url: `https://mainnet.infura.io/v3/${process.env.INFRA_PROVIDER_TOKEN}`,
+      accounts: [process.env.MAIN_PRIVATE_KEY],
     },
     goerli: {
-      url: myCon.url.goerli,
-      accounts: myCon.accounts.test,
+      url: `https://goerli.infura.io/v3/${process.env.INFRA_PROVIDER_TOKEN}`,
+      accounts: [process.env.TEST_PRIVATE_KEY],
     },
     sepolia: {
-      url: myCon.url.sepolia,
-      accounts: myCon.accounts.test,
+      url: `https://sepolia.infura.io/v3/${process.env.INFRA_PROVIDER_TOKEN}`,
+      accounts: [process.env.TEST_PRIVATE_KEY],
     },
     ganache: {
       url: `http://127.0.0.1:9545`,
@@ -30,7 +29,7 @@ module.exports = {
     },
   },
   solidity: {
-    version: '0.8.18',
+    version: '0.8.21',
     settings: {
       optimizer: {
         enabled: true,
