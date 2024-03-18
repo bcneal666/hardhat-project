@@ -1,6 +1,8 @@
 // require('@nomiclabs/hardhat-etherscan');
+require('dotenv').config();
 require('@nomicfoundation/hardhat-toolbox');
 require('hardhat-gas-reporter');
+require("@nomicfoundation/hardhat-ignition-ethers");
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   etherscan: {
@@ -10,15 +12,15 @@ module.exports = {
     hardhat: {},
     main: {
       url: `https://mainnet.infura.io/v3/${process.env.INFRA_PROVIDER_TOKEN}`,
-      accounts: process.env.MAIN_PRIVATE_KEY,
+      accounts: [process.env.MAIN_PRIVATE_KEY],
     },
     goerli: {
       url: `https://goerli.infura.io/v3/${process.env.INFRA_PROVIDER_TOKEN}`,
-      accounts: process.env.TEST_PRIVATE_KEY,
+      accounts: [process.env.TEST_PRIVATE_KEY],
     },
     sepolia: {
       url: `https://sepolia.infura.io/v3/${process.env.INFRA_PROVIDER_TOKEN}`,
-      accounts: process.env.TEST_PRIVATE_KEY,
+      accounts: [process.env.TEST_PRIVATE_KEY],
     },
     ganache: {
       url: `http://127.0.0.1:9545`,
@@ -39,9 +41,13 @@ module.exports = {
   },
   gasReporter: {
     enabled: true,
+    coinmarketcap: process.env.COIN_MARKET_API_KEY
+      ? process.env.COIN_MARK_API_KEY
+      : '',
+    L1: 'ethereum',
+    L2: '',
     currency: 'USD',
-    gasPrice: 21,
-    coinmarketcap: process.env.COIN_MARKET_API_KEY,
     token: 'ETH',
+    darkMode: true,
   },
 };

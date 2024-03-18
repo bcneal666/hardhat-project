@@ -1,7 +1,13 @@
+//compile
 npx hardhat compile
 
+//test
 npx hardhat test .\test\Lock.js
 
-npx hardhat run --network goerli .\scripts\deploy.js
+//simple deploy and verify
+npx hardhat ignition deploy ./ignition/modules/Lock.js --network localhost
+npx hardhat ignition deploy ignition/modules/Lock.js --network sepolia --verify
 
-npx hardhat verify --contract "contracts/ERC721_MerkleTree.sol:Project"  --network goerli --constructor-args .\scripts\args_info.js  0x9c364c78eBC7424a14F84b01056B2528De34931c
+//deploy and verify with deployment id
+npx hardhat ignition deploy ignition/modules/Lock.js --network sepolia --deployment-id sepolia-deployment
+npx hardhat ignition verify sepolia-deployment
