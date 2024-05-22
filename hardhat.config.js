@@ -2,8 +2,8 @@
 require('dotenv').config();
 require('@nomicfoundation/hardhat-toolbox');
 require('hardhat-gas-reporter');
-require("@nomicfoundation/hardhat-ignition-ethers");
-require("@nomicfoundation/hardhat-ethers");
+require('@nomicfoundation/hardhat-ignition-ethers');
+require('@nomicfoundation/hardhat-ethers');
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   etherscan: {
@@ -36,19 +36,20 @@ module.exports = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 300,
+        runs: 200,
       },
     },
   },
   gasReporter: {
     enabled: true,
     coinmarketcap: process.env.COIN_MARKET_API_KEY
-      ? process.env.COIN_MARK_API_KEY
+      ? process.env.COIN_MARKET_API_KEY
       : '',
     L1: 'ethereum',
-    L2: '',
+    // L2: '',
     currency: 'USD',
     token: 'ETH',
+    showTimeSpent: true,
     darkMode: true,
   },
 };

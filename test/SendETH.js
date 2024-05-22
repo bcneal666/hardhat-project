@@ -30,7 +30,7 @@ describe('SendETH', function () {
       const { sendETH } = await loadFixture(deploySendETHFixture);
       const fallbackAddr = await sendETH.fallbackFn();
       expect(fallbackAddr).to.not.equal(0);
-      testLog('fallbackFn address:', fallbackAddr);
+      testLog('fallbackFn address', fallbackAddr);
     });
   });
 
@@ -42,7 +42,7 @@ describe('SendETH', function () {
       // const bEther = ethers.formatEther(balance);
       const sEther = ethers.formatEther(sendValue);
       // console.log('sendETH.fallbackFn() balance:', bEther);
-      console.log('      send ETH:', sEther);
+      testLog('sendETH', sEther);
       expect(await ethers.provider.getBalance(sendETH.fallbackFn())).to.equal(
         sendValue
       );
