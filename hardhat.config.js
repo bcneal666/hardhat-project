@@ -42,9 +42,9 @@ module.exports = {
   },
   gasReporter: {
     enabled: true,
-    coinmarketcap: process.env.COIN_MARKET_API_KEY
-      ? process.env.COIN_MARKET_API_KEY
-      : '',
+    // coinmarketcap: process.env.COIN_MARKET_API_KEY
+    //   ? process.env.COIN_MARKET_API_KEY
+    //   : '',
     L1: 'ethereum',
     // L2: '',
     currency: 'USD',
